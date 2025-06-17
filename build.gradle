@@ -27,7 +27,7 @@ dependencies {
 	//머스탯치에 필요한 라이브러리
 	implementation 'com.enonic.lib:lib-mustache:2.1.1'
 	//롬복에 필요한 라이브러리
-	implementation 'org.projectlombok:lombok:1.18.38'
+	compileOnly 'org.projectlombok:lombok:1.18.38'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
