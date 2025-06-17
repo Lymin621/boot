@@ -20,15 +20,15 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	//마이바티스에 필요한 라이브러리
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
 	//yml(YAML문법) 파일 라이브러리
 	implementation 'org.springframework.boot:spring-boot-configuration-processor:3.5.0'
 	//머스탯치에 필요한 라이브러리
 	implementation 'com.enonic.lib:lib-mustache:2.1.1'
+	//마이바티스에 필요한 라이브러리
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+//	runtimeOnly 'com.mysql:mysql-connector-j'
 	//롬복에 필요한 라이브러리
 	compileOnly 'org.projectlombok:lombok:1.18.38'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
