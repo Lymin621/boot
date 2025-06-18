@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>애니메이트</title>
+	<script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+	<style>
+		#region {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			margin: auto;
+			border: 1px solid #333;
+		}
+
+		#images { width: 400px; height: 200px; }
+		#images a img {
+			width: 200px;
+			height: 200px;
+			border: 0;
+			position: relative;
+		}
+
+		#direction { width: 350px; margin: auto; }
+		.leftbtn { float: left; }
+		.rightbtn { float: right; }
+
+		
+		#divPa {
+			position: relative;
+			height: 300px;
+			border: 1px solid #000;
+		}
+
+		#divCh {
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			width: 50px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+$(function () {
+	// animate({스타일속성}, 적용시간 | 속도함수 | 콜백함수) : 다양한 동작효과를 적용할 수 있다.
+	// 적용시간(ms), 속도함수(swing, linear)
+	// 스타일속성명은 -를 제외하고, 카멜기법으로 표기
+
+	// document.getElementsByClassName('.leftbtn')[0].style;
+	$('.leftbtn').click(function (event) {
+		$('#images').animate({ marginLeft: -200 }, 1000);
+	});
+	$('.rightbtn').click(function (event) {
+		$('#images').animate({ marginLeft: 0 }, 1000);
+	});
+
+	$("#divCh").click(function () {
+		$("#divCh").animate({ "background-color": "red", top: 50, left: 400 }, 1000)
+		.animate({ "background-color": "yellow", top: "150px", left: "400px" }, 1000)
+		.animate({ "background-color": "blue", top: "150px", left: "50px" }, 1000)
+		.animate({ "background-color": "green", top: "50px", left: "50px" }, 1000);
+	});
+});
+	</script>
+</head><body>
+	<div id="region">
+		<div id="images">
+			<a href="#"><img src="/jquery/3.7.0/img/cute_dog.jpg"></a><a href="#"><img src="/jquery/3.7.0/img/namu.png"></a>
+		</div>
+	</div>
+	<div id="direction">		
+		<button class="leftbtn">&lt;</button>
+		<button class="rightbtn">&gt;</button>
+	</div><br><br>
+
+	<div id="divPa">
+		<div id="divCh"></div>
+	</div>
+</body>
+</html>

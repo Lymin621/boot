@@ -18,4 +18,8 @@ public class ExController {
         public String joinform(){
         return "joinform";
     }
+    @GetMapping("/ani")
+        public String ani(){
+        return "ani";
+    }
 }
