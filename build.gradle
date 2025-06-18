@@ -24,9 +24,11 @@ dependencies {
 	//머스탯치에 필요한 라이브러리
 	implementation 'com.enonic.lib:lib-mustache:2.1.1'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+	// 데이터베이스에 필요한 라이브러리들 - jdbc, mybatis, mysql
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.5.0'
 	//마이바티스에 필요한 라이브러리
-//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
-//	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	//롬복에 필요한 라이브러리
 	compileOnly 'org.projectlombok:lombok:1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
