@@ -6,21 +6,23 @@
     <select id="userList" resultType="uservo">
         select * from user
     </select>
-    <insert id="insertAuthor">
-        insert into Author (id,username,password,email,bio)
-        values (#{id},#{username},#{password},#{email},#{bio})
+    <select id="login" resultType="uservo">
+        select * from user where uid = #{uid} and upw = #{upw}
+    </select>
+    <insert id="joinUser" parameterType="uservo">
+        insert into User (uid, upw, unm, utel)
+        values (#{uid},#{upw},#{unm},#{utel})
     </insert>
+<!--    <update id="updateAuthor">-->
+<!--        update Author set-->
+<!--        username = #{username},-->
+<!--        password = #{password},-->
+<!--        email = #{email},-->
+<!--        bio = #{bio}-->
+<!--        where id = #{id}-->
+<!--    </update>-->
 
-    <update id="updateAuthor">
-        update Author set
-        username = #{username},
-        password = #{password},
-        email = #{email},
-        bio = #{bio}
-        where id = #{id}
-    </update>
-
-    <delete id="deleteAuthor">
-        delete from Author where id = #{id}
-    </delete>
+<!--    <delete id="deleteAuthor">-->
+<!--        delete from Author where id = #{id}-->
+<!--    </delete>-->
 </mapper>
