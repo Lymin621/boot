@@ -5,6 +5,6 @@
 <configuration>
     <typeAliases>
 <!--        <typeAlias alias="별칭" type="패키지경로포함.클래스명"/>-->
-        <typeAlias alias="uservo" type="package com.example.boot.vo.User"/>
+        <typeAlias alias="uservo" type="com.example.boot.vo.User"/>
     </typeAliases>
 </configuration>
