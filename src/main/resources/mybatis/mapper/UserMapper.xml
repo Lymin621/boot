@@ -2,8 +2,25 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mapper클래스를 연결할 자리">
-<!--    <select id="selectBlog" resultType="Blog">-->
-<!--        select * from Blog where id = #{id}-->
-<!--    </select>-->
+<mapper namespace="package com.example.boot.mapper.UserMapper">
+    <select id="userList" resultType="uservo">
+        select * from user
+    </select>
+    <insert id="insertAuthor">
+        insert into Author (id,username,password,email,bio)
+        values (#{id},#{username},#{password},#{email},#{bio})
+    </insert>
+
+    <update id="updateAuthor">
+        update Author set
+        username = #{username},
+        password = #{password},
+        email = #{email},
+        bio = #{bio}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAuthor">
+        delete from Author where id = #{id}
+    </delete>
 </mapper>
