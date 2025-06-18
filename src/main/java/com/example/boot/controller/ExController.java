@@ -1,12 +1,17 @@
 package com.example.boot.controller;
 
+import com.example.boot.svc.UserSvc;
 import com.example.boot.vo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ExController {
+    @Autowired
+    UserSvc svc;
+
     @GetMapping({"/", "/index"}) // 클라이언트가 url요청한 주소
         public String index(){
             /* 스프링 부트의 viewResolver가 가지고 있는 것
@@ -23,6 +28,7 @@ public class ExController {
     @PostMapping("/joinform") // 동일한 메소드 방식의 동일한 url패턴이 2개 이상 존재하면 안됨.
         public String joinform(User user){
         System.out.println(user);
+        svc.joinUs(user);
         return "joinresult";
     }
 }
