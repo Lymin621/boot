@@ -25,12 +25,4 @@ public class ExController {
         System.out.println(user);
         return "joinresult";
     }
-    @GetMapping("/ani")
-        public String ani(){
-        return "ani";
-    }
-    @GetMapping("/cell")
-        public String cell(){
-        return "cell";
-    }
 }
