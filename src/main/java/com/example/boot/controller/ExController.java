@@ -23,7 +23,7 @@ public class ExController {
     @PostMapping("/joinform") // 동일한 메소드 방식의 동일한 url패턴이 2개 이상 존재하면 안됨.
         public String joinform(User user){
         System.out.println(user);
-        return "joinform";
+        return "joinresult";
     }
     @GetMapping("/ani")
         public String ani(){
