@@ -22,4 +22,8 @@ public class ExController {
         public String ani(){
         return "ani";
     }
+    @GetMapping("/cell")
+        public String cell(){
+        return "cell";
+    }
 }
