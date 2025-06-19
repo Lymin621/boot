@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style>
+            table {
+                border-collapse : collapse;
+                width: 800px;
+                margin : 20px auto;
+            }
+            tr {
+                border-top: 1px solid #aaa;
+            }
+            tr:nth-last-of-type(1){
+                border-bottom : 1px solid #aaa;
+            }
+            th {
+                background-color: #777;
+                color: #fff;
+            }
+            tr:hover {
+                background-color: #ccc;
+                cursor: pointer;
+            }
+        </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>아이디</th>
+            <th>비번</th>
+            <th>이름</th>
+            <th>전화번호</th>
+        </tr>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.uid}"></td>
+            <td th:text="${user.upw}"></td>
+            <td th:text="${user.unm}"></td>
+            <td th:text="${user.utel}"></td>
+        </tr>
+        </thead>
+    </table>
+</body>
+</html>

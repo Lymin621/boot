@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,5 +7,6 @@
 <body>
 안녕, 스프링부트!!!<br>
 <a href="/joinform">회원가입</a><br>
+<a th:href="@{/userList}" th:text="|회원목록 보기|"></a>
 </body>
 </html>

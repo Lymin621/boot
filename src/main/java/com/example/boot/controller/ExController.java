@@ -39,11 +39,15 @@ public class ExController {
     }
 
     //회원 전체 목록 보기
+    @GetMapping("/userList")
     public String userList(Model model){
-        List<User> userList = svc.userList();
+        List<User> list = svc.userList();
+        for(User user:list){
+            System.out.println(user);
+        }
         // model객체는 request객체이다.
         // 형식 : model.addAttribute("속성명(키명)", 속성값);
-        model.addAttribute("",userList);
-        return "";
+        model.addAttribute("userList",list);
+        return "userlist";
     }
 }
