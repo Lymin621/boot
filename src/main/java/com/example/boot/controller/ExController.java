@@ -50,4 +50,9 @@ public class ExController {
         model.addAttribute("userList",list);
         return "userlist";
     }
+    //로그인 창
+    @GetMapping("/userlogin")
+        public String userlogin(){
+        return "login";
+    }
 }
