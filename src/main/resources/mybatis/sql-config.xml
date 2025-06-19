@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-<!--        <typeAlias alias="별칭" type="패키지경로포함.클래스명"/>-->
+        <!-- <typeAlias alias="별칭" type="패키지경로포함.클래스명"/> -->
         <typeAlias alias="uservo" type="com.example.boot.vo.User"/>
     </typeAliases>
 </configuration>

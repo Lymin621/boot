@@ -3,26 +3,43 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.boot.mapper.UserMapper">
+
     <select id="userList" resultType="uservo">
         select * from user
     </select>
+
     <select id="login" resultType="uservo">
         select * from user where uid = #{uid} and upw = #{upw}
     </select>
+
     <insert id="joinUser" parameterType="uservo">
         insert into User (uid, upw, unm, utel)
         values (#{uid},#{upw},#{unm},#{utel})
     </insert>
-<!--    <update id="updateAuthor">-->
-<!--        update Author set-->
-<!--        username = #{username},-->
-<!--        password = #{password},-->
-<!--        email = #{email},-->
-<!--        bio = #{bio}-->
-<!--        where id = #{id}-->
-<!--    </update>-->
 
-<!--    <delete id="deleteAuthor">-->
-<!--        delete from Author where id = #{id}-->
-<!--    </delete>-->
+<!-- 회원 정보 수정 : update문 -->
+    <update id="userUpdate" >
+        UPDATE USER
+        SET UPW = #{upw}, UTEL = #{utel}
+        WHERE UID = #{uid}
+    </update>
+
+<!-- 회원탈퇴 : delete-->
+    <delete id="userDelete">
+        DELETE FROM USER WHERE UID = #{uid}
+    </delete>
+
+
+<!-- 회원 일부 목록 조회 : SELECT -->
+    <select id="userSelList" resultType="uservo">
+        SELECT * FROM USER
+        WHERE UID = #{uid} OR UNM = #{unm} OR UTEL = #{utel}
+    </select>
+
+<!-- 나의 정보 보기 : SELECT -->
+    <select id="userOne" resultType="uservo">
+        SELECT * FROM USER
+        WHERE UID = #{uid}
+    </select>
+
 </mapper>
