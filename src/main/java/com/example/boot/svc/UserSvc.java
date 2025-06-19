@@ -11,7 +11,30 @@ public class UserSvc {
     @Autowired
     UserMapper mapper;
 
+    //회원 전체 목록 보기
+    public User userList(User user){
+        return mapper.userList();
+    }
+
+    //회원 가입 관련
     public int joinUs(User user){
         return mapper.joinUser(user);
+    }
+
+    //    회원 정보 수정
+    public int userDelete(String uid){
+        return mapper.userDelete(uid);
+    }
+    //    회원 탈퇴
+    public int userUpdate(User user){
+        return mapper.userUpdate(user);
+    }
+    //    회원 일부 목록
+    public User userSelList(User user){
+        return mapper.userSelList(user);
+    }
+    //    나의 정보 보기
+    public User userOne(String uid){
+        return mapper.userOne(uid);
     }
 }
