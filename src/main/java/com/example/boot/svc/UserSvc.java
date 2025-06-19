@@ -14,7 +14,7 @@ public class UserSvc {
     UserMapper mapper;
 
     //회원 전체 목록 보기
-    public List<User> userList(User user){
+    public List<User> userList(){
         return mapper.userList();
     }
 

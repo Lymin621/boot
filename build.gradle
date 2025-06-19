@@ -17,21 +17,23 @@ repositories {
 }
 
 dependencies {
+	//타임리프 관련 라이브러리
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//스프링부트 웹에 필요한 전반적인 라이브러리들의 묶음
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//yml(YAML문법) 파일 라이브러리
 	implementation 'org.springframework.boot:spring-boot-configuration-processor:3.5.0'
 	//머스탯치에 필요한 라이브러리
 	implementation 'com.enonic.lib:lib-mustache:2.1.1'
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	// 데이터베이스에 필요한 라이브러리들 - jdbc, mybatis, mysql
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.5.0'
-	//마이바티스에 필요한 라이브러리
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	//롬복에 필요한 라이브러리
 	compileOnly 'org.projectlombok:lombok:1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+	//test폴더 관련 test task를 진행하기 위해 필요한 라이브러리
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
