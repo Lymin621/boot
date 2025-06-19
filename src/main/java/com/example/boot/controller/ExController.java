@@ -43,15 +43,21 @@ public class ExController {
 
     //회원 전체 목록 보기
     @GetMapping("/userList")
-    public String userList(Model model){
-        List<User> list = svc.userList();
-        for(User user:list){
-            System.out.println(user);
+    public String userList(Model model, HttpSession session) {
+        String logid = (String) session.getAttribute("loginid");
+        if (logid != null) {
+            List<User> list = svc.userList();
+
+            for (User user : list) {
+                System.out.println(user);
+            }
+            // model객체는 request객체이다.
+            // 형식 : model.addAttribute("속성명(키명)", 속성값);
+            model.addAttribute("userList", list);
+            return "userlist";
+        } else {
+            return "login";
         }
-        // model객체는 request객체이다.
-        // 형식 : model.addAttribute("속성명(키명)", 속성값);
-        model.addAttribute("userList",list);
-        return "userlist";
     }
     //로그인 창
     @RequestMapping(value ="/userlogin", method=RequestMethod.GET)
