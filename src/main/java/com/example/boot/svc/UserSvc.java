@@ -5,6 +5,8 @@ import com.example.boot.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserSvc {
 
@@ -12,7 +14,7 @@ public class UserSvc {
     UserMapper mapper;
 
     //회원 전체 목록 보기
-    public User userList(User user){
+    public List<User> userList(User user){
         return mapper.userList();
     }
 
@@ -22,17 +24,20 @@ public class UserSvc {
     }
 
     //    회원 정보 수정
-    public int userDelete(String uid){
-        return mapper.userDelete(uid);
-    }
-    //    회원 탈퇴
     public int userUpdate(User user){
         return mapper.userUpdate(user);
     }
+
+    //    회원 탈퇴
+    public int userDelete(String uid){
+        return mapper.userDelete(uid);
+    }
+
     //    회원 일부 목록
-    public User userSelList(User user){
+    public List<User> userSelList(User user){
         return mapper.userSelList(user);
     }
+
     //    나의 정보 보기
     public User userOne(String uid){
         return mapper.userOne(uid);
