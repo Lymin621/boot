@@ -12,6 +12,7 @@
 <!--if문-->
 <a th:if="${#strings.isEmpty(session.loginid)}" th:href="@{/userlogin}">로그인</a>
 <!--else문-->
-<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/logout}">로그아웃</a>
+<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/logout}">로그아웃</a><br>
+<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/userdelete}">회원탈퇴</a>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 탈퇴</title>
+    <style>
+        h1{
+        text-align: center;
+        color : red;
+        }
+        input[type=submit]:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>정말 회원을 탈퇴하겠습니까 ?</h1>
+<form action="/userDelete" id="delete" name="delete" method="post">
+    <input type="hidden" name="uid" th:value="${session.loginid}">
+    <input type="submit" value="탈퇴하기" onclick="return confirm('정말 탈퇴하시겠어요?');">
+</form>
+</body>
+</html>
