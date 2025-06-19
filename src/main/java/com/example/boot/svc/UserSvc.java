@@ -42,4 +42,9 @@ public class UserSvc {
     public User userOne(String uid){
         return mapper.userOne(uid);
     }
+
+    // 로그인 정보
+    public User userLogin(User user){
+        return mapper.userLogin(user);
+    }
 }

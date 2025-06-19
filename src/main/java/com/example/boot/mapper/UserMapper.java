@@ -19,4 +19,6 @@ public interface UserMapper {
     List<User> userSelList(User user);
     //나의 정보 보기
     User userOne(String user);
+    // 로그인
+    User userLogin(User user);
 }

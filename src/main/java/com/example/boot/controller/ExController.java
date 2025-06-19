@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -51,8 +53,22 @@ public class ExController {
         return "userlist";
     }
     //로그인 창
-    @GetMapping("/userlogin")
+    @RequestMapping(value ="/userlogin", method=RequestMethod.GET)
         public String userlogin(){
         return "login";
     }
+    @RequestMapping(value ="/userlogin", method=RequestMethod.POST)
+        public String userlogin(User user){
+        System.out.println("로그인의 user: "+user);
+        User vo = svc.userLogin(user);
+        if(vo != null){
+            System.out.println("로그인 성공");
+            return "index";
+        }else{
+            System.out.println("로그인 실패");
+            return "login";
+        }
+
+    }
+
 }
