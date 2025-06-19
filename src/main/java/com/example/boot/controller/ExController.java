@@ -78,5 +78,12 @@ public class ExController {
         }
 
     }
+    //로그아웃 처리하기
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        System.out.println("로그아웃 성공");
+        session.invalidate();
+        return "index";
+    }
 
 }

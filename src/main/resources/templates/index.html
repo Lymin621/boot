@@ -10,8 +10,8 @@
 <a th:href="@{/userList}" th:text="|회원목록 보기|"></a><br>
 <!--<a th:href="@{/userlogin}" th:text="|로그인|"></a>-->
 <!--if문-->
-<a th:if="${#strings.isEmpty(session.user)}" th:href="@{/userlogin}">로그인</a>
+<a th:if="${#strings.isEmpty(session.loginid)}" th:href="@{/userlogin}">로그인</a><br>
 <!--else문-->
-<a th:unless="${#strings.isEmpty(session.user)}" th:href="@{/logout}">로그아웃</a>
+<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/logout}">로그아웃</a><br>
 </body>
 </html>
