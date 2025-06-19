@@ -26,8 +26,10 @@
         </style>
 </head>
 <body>
-    <table>
-        <thead>
+<!--if문-->
+<a th:if="${#strings.isEmpty(session.loginid)}" th:href="@{/userlogin}">로그인</a>
+<!--else문-->
+<table th:unless="${#strings.isEmpty(session.loginid)}">
         <tr>
             <th>아이디</th>
             <th>비번</th>
@@ -40,7 +42,6 @@
             <td th:text="${user.unm}"></td>
             <td th:text="${user.utel}"></td>
         </tr>
-        </thead>
-    </table>
+</table>
 </body>
 </html>

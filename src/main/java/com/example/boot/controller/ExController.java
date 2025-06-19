@@ -2,6 +2,7 @@ package com.example.boot.controller;
 
 import com.example.boot.svc.UserSvc;
 import com.example.boot.vo.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,11 +59,12 @@ public class ExController {
         return "login";
     }
     @RequestMapping(value ="/userlogin", method=RequestMethod.POST)
-        public String userlogin(User user){
+        public String userlogin(User user, HttpSession session){
         System.out.println("로그인의 user: "+user);
         User vo = svc.userLogin(user);
         if(vo != null){
             System.out.println("로그인 성공");
+            session.setAttribute("loginid",user.getUid());
             return "index";
         }else{
             System.out.println("로그인 실패");

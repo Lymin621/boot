@@ -8,6 +8,10 @@
 안녕, 스프링부트!!!<br>
 <a href="/joinform">회원가입</a><br>
 <a th:href="@{/userList}" th:text="|회원목록 보기|"></a><br>
-<a th:href="@{/userlogin}" th:text="|로그인|"></a>
+<!--<a th:href="@{/userlogin}" th:text="|로그인|"></a>-->
+<!--if문-->
+<a th:if="${#strings.isEmpty(session.user)}" th:href="@{/userlogin}">로그인</a>
+<!--else문-->
+<a th:unless="${#strings.isEmpty(session.user)}" th:href="@{/logout}">로그아웃</a>
 </body>
 </html>
