@@ -29,6 +29,10 @@
 <!--if문-->
 <a th:if="${#strings.isEmpty(session.loginid)}" th:href="@{/userlogin}">로그인</a>
 <!--else문-->
+<form action="/searchUser" method="get">
+    <input type="search" name="searchStr">
+    <input type="submit" value="검색">
+</form>
 <table th:unless="${#strings.isEmpty(session.loginid)}">
         <tr>
             <th>아이디</th>

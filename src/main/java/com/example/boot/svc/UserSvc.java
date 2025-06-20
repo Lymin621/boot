@@ -34,8 +34,8 @@ public class UserSvc {
     }
 
     //    회원 일부 목록
-    public List<User> userSelList(User user){
-        return mapper.userSelList(user);
+    public List<User> userSelList(String searchStr){
+        return mapper.userSelList(searchStr);
     }
 
     //    나의 정보 보기

@@ -16,7 +16,7 @@ public interface UserMapper {
     //회원 탈퇴
     int userDelete(String uid);
     //회원 일부 목록 죄회
-    List<User> userSelList(User user);
+    List<User> userSelList(String user);
     //나의 정보 보기
     User userOne(String user);
     // 로그인

@@ -7,10 +7,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -91,17 +88,16 @@ public class ExController {
         return "index";
     }
 
-    @GetMapping("/userdelete")
-    public String userDeleteForm() {
-        return "userdelete";
-    }
-
-    @PostMapping("/userDelete")
-    public String userDelete(HttpServletRequest request) {
-        String uid = (String) request.getSession().getAttribute("loginid");
-        svc.userDelete(uid);
-        request.getSession().invalidate();
-        return "index";
+    @GetMapping("/userDelete")
+    public String userDelete(HttpSession session){
+        String uid =(String) session.getAttribute("loginid");
+        int result = svc.userDelete(uid);
+        if(result > 0){
+            session.invalidate();
+            return "index";
+        }else{
+            return "redirect:/userUpdate";
+        }
     }
 
     //회원정보 수정 폼 - 데이터 담아가기
@@ -117,8 +113,16 @@ public class ExController {
     public String userUpdate(HttpSession session, User user){
         user.setUid((String) session.getAttribute("loginid"));
         System.out.println(user);
-//        svc.userUpdate(user);
+        svc.userUpdate(user);
         return "redirect:/userUpdate";
+    }
+
+    //검색한 회원 정보들 보기
+    @GetMapping("/searchUser")
+    public String userSelList(@RequestParam String searchStr, Model model){
+//        List<User> serachList = svc.userSelList(searchStr);
+        model.addAttribute("userList",svc.userSelList(searchStr));
+        return "userlist";
     }
 
 }
