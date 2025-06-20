@@ -104,4 +104,21 @@ public class ExController {
         return "index";
     }
 
+    //회원정보 수정 폼 - 데이터 담아가기
+    @GetMapping("/userUpdate")
+    public String userUpdate(HttpSession session, Model model){
+        String uid = (String) session.getAttribute("loginid");
+        model.addAttribute("user", svc.userOne(uid));
+        return "userupdate";
+    }
+
+    // 회원정보 수정하기
+    @PostMapping("/userUpdate")
+    public String userUpdate(HttpSession session, User user){
+        user.setUid((String) session.getAttribute("loginid"));
+        System.out.println(user);
+//        svc.userUpdate(user);
+        return "redirect:/userUpdate";
+    }
+
 }

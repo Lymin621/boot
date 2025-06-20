@@ -20,7 +20,16 @@
 <!-- 회원 정보 수정 : update문 -->
     <update id="userUpdate" >
         UPDATE USER
-        SET UPW = #{upw}, UTEL = #{utel}
+        SET
+        <if test="upw != null and utel !=null">
+            UPW = #{upw}, UTEL = #{utel}
+        </if>
+        <if test="upw != null and utel !=null">
+            UPW = #{upw}
+        </if>
+        <if test="upw != null and utel !=null">
+            UTEL = #{utel}
+        </if>
         WHERE UID = #{uid}
     </update>
 

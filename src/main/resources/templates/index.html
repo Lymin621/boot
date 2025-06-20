@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-안녕, 스프링부트!!!<br>
-<a href="/joinform">회원가입</a><br>
-<a th:href="@{/userList}" th:text="|회원목록 보기|"></a><br>
-<!--<a th:href="@{/userlogin}" th:text="|로그인|"></a>-->
-<!--if문-->
-<a th:if="${#strings.isEmpty(session.loginid)}" th:href="@{/userlogin}">로그인</a>
-<!--else문-->
-<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/logout}">로그아웃</a><br>
-<a th:unless="${#strings.isEmpty(session.loginid)}" th:href="@{/userdelete}">회원탈퇴</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        안녕, 스프링부트!!!<br>
+        <a href="/joinform">회원가입</a><br>
+        <a th:href="@{/userList}" th:text="|회원목록 보기|"></a><br>
+        <!--<a th:href="@{/userlogin}" th:text="|로그인|"></a>-->
+        <!--if문-->
+        <div th:if="${#strings.isEmpty(session.loginid)}">
+            <a th:href="@{/userlogin}">로그인</a>
+        </div>
+        <div th:unless="${#strings.isEmpty(session.loginid)}">
+            <a th:href="@{/userUpdate}">회원정보 수정</a><br>
+            <a th:href="@{/logout}">로그아웃</a><br>
+            <a th:href="@{/userdelete}">회원탈퇴</a>
+        </div>
+    </body>
 </html>
