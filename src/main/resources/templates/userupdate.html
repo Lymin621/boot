@@ -24,7 +24,9 @@
   </form>
 <script>
   document.getElementById('deleteUserBtn').onclick = function(){
-
+    if(confirm("정말로 회원을 탈퇴 하시겠습니까?")){
+      location.href='/userDelete';
+    }
   };
 </script>
 </body>
