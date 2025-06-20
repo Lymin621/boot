@@ -2,7 +2,9 @@ package com.example.boot.controller;
 
 import com.example.boot.svc.UserSvc;
 import com.example.boot.vo.User;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -123,6 +125,33 @@ public class ExController {
 //        List<User> serachList = svc.userSelList(searchStr);
         model.addAttribute("userList",svc.userSelList(searchStr));
         return "userlist";
+    }
+
+// 쿠키관련 컨트롤러
+    @GetMapping("/cookieForm")
+    public String cookieForm(){
+        return "cookieForm";
+    }
+    @GetMapping("/cookie")
+    public String cookieCreate(HttpServletResponse response, @RequestParam(value="pcode") String pno, @RequestParam String pname){
+        Cookie pcd  = new Cookie("pno", pno);
+//        pcd.setMaxAge(60*5);  //초(second) 단위
+
+        Cookie pnm  = new Cookie("pnm", pname);
+        pnm.setMaxAge(60*5);  //초(second) 단위
+        response.addCookie(pcd);
+        response.addCookie(pnm);
+        return "cookie";
+    }
+
+    @GetMapping("/cookieDelete")
+    public String cookieDelete(HttpServletRequest request, HttpServletResponse response){
+        Cookie[] cookies = request.getCookies();
+        for( Cookie cookie : cookies ){
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+        }
+        return "index";
     }
 
 }
